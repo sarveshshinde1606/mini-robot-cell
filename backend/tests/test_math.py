@@ -27,6 +27,21 @@ class TestPickMath(unittest.TestCase):
     def test_latency(self):
         self.assertAlmostEqual(latency_compensation(0.25, 200), 50.0)
 
+    def test_top_left_corner(self):
+        self.assertEqual(
+            pixel_to_mm(0, 0, 1280, 720, 0.4),
+            (-256.0, -144.0),
+        )
+
+    def test_bottom_right_corner(self):
+        self.assertEqual(
+            pixel_to_mm(1280, 720, 1280, 720, 0.4),
+            (256.0, 144.0),
+        )
+
+    def test_zero_latency(self):
+        self.assertEqual(latency_compensation(0.25, 0), 0.0)
+
 
 if __name__ == '__main__':
     unittest.main()
