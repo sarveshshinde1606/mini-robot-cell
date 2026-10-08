@@ -1,0 +1,11 @@
+cell:
+  mm_per_pixel: 0.4
+  belt_speed_mps: 0.25
+  pipeline_latency_ms: 200
+  camera_device: 0
+  camera_fps: 10
+  source_width: 1280
+  source_height: 720
+  websocket_port: 9090
+  camera_http_port: 8081
+  home_pose_rad: [0.0, -0.7, 1.0, -1.2, 0.8, 0.0]

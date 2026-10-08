@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: mini-robot-backend
+    environment:
+      ROS_DOMAIN_ID: "0"
+      CONFIG_PATH: /workspace/config/cell.yaml
+    expose:
+      - "9090"
+      - "8081"
+    ports:
+      - "9090:9090"
+      - "8081:8081"
+    privileged: true
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8081/health >/dev/null"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: mini-robot-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
