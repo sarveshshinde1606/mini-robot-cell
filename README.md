@@ -63,6 +63,10 @@ Browser :8080
 - Pick target published to `/pick_target` and logged by the backend.
 - All runtime assets are inside the images; no runtime downloads.
 
+## Console screenshot
+
+![Mini Robot Cell Operator Console](docs/console.png) 
+
 ## What doesn't work / deliberate scope cuts
 
 - The URDF uses primitive geometry instead of a vendor mesh package. This keeps the repository small and avoids runtime downloads while satisfying the brief's accepted hand-written-URDF option.
@@ -97,7 +101,7 @@ The tests cover centre conversion, pixel offset, display/source scaling, and lat
 
 ## Image size / build time
 
-Fill these two values after the final clean build on the submission machine:
+Measured on the development machine:
 
 - Final image size: ~2.30 GB combined (backend 2.21 GB + frontend 94 MB, measured with `docker images`)
 - Cold build time: ~11 min 30 sec with `docker compose build --no-cache` (machine-dependent)
