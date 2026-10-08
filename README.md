@@ -99,8 +99,8 @@ The tests cover centre conversion, pixel offset, display/source scaling, and lat
 
 Fill these two values after the final clean build on the submission machine:
 
-- Final image size: `TBD`
-- Cold build time: `TBD`
+- Final image size: ~2.30 GB combined (backend 2.21 GB + frontend 94 MB, measured with `docker images`)
+- Cold build time: ~11 min 30 sec with `docker compose build --no-cache` (machine-dependent)
 
 ## Demo video
 
